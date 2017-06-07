@@ -1,0 +1,37 @@
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+    <input name="cartid" />
+
+    <on-start>
+        <evaluate expression="bookingService.createBooking(cartid, User.username)" 
+                  result="flowScope.booking" />
+    </on-start>
+
+    <view-state id="cart">
+        <transition on="submit" to="addcart" />
+    </view-state>
+
+    <view-state id="reviewBooking">
+       <!--  <transition on="addGuest" to="addGuest" />  -->
+        <transition on="confirm" to="checkout" />
+        <transition on="revise" to="acknowledgement" />
+        <transition on="cancel" to="acknowledgement" />
+    </view-state>
+
+    <subflow-state id="addGuest" subflow="createGuest">
+        <transition on="guestCreated" to="reviewBooking">
+            <evaluate expression="booking.guests.add(currentEvent.attributes.guest)" />  
+        </transition>
+        <transition on="creationCancelled" to="reviewBooking" />
+    </subflow-state>
+		
+    <end-state id="acknowledgement" >
+        <output name="orderid" value="order.orderid" />
+    </end-state>
+
+    <end-state id="cartCancelled" />
+		
+</flow>		

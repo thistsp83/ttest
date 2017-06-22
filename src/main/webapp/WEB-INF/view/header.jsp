@@ -67,14 +67,14 @@
 			</button>
 							
 			<a class="navbar-brand" href="./">				
-				<img src='<c:url value="resources/images/logo.png" />' width="50px" height="25px" class="img-responsive"/>
+				<img src='<c:url value="resources/images/logo1.jpg" />' width="50px" height="25px" class="img-responsive"/>
 			</a>
 		</div>		
 		
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
 				
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
+				<!-- <li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"
 					aria-expanded="false">Products <span class="caret"></span></a>
 					<ul class="dropdown-menu">
@@ -82,14 +82,16 @@
 						<li>Category 1</li>
 						<li>Category 1</li>
 					</ul>
-				</li>
+				</li> -->
 					<li><a href="<c:url value="admin/adding"/>" role="button" aria-haspopup="true"
-					aria-expanded="false">Add</a></li>
-			</ul>
-		            <li><a href="CategoryList">CategoryList</a></li>
+					aria-expanded="false">Add Products</a></li>
+					 <li><a href="plistview">Product List</a></li>
+					 <li><a href="CategoryList">CategoryList</a></li>
                     <li><a href="supplierlist">SupplierList</a></li>
-                    <li><a href="productlist">ProductList</a></li>
-        			<li><a href="individualitem">Add Cart</a></li>
+			</ul>
+		            
+                   
+        			<!-- <li><a href="productsdetails">Add Cart</a></li> -->
 		
 			    <li>
 					<form class="navbar-form navbar-left">

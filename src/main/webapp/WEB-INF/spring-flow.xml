@@ -6,15 +6,15 @@
     <input name="cartid" />
 
     <on-start>
-        <evaluate expression="bookingService.createBooking(cartid, User.username)" 
-                  result="flowScope.booking" />
+        <evaluate expression="(cartid, User.username)" 
+                  result="flowScope.viewcart" />
     </on-start>
 
     <view-state id="cart">
-        <transition on="submit" to="addcart" />
+        <transition on="submit" to="viewcart" />
     </view-state>
 
-    <view-state id="reviewBooking">
+    <view-state id="reviewcartdetails">
        <!--  <transition on="addGuest" to="addGuest" />  -->
         <transition on="confirm" to="checkout" />
         <transition on="revise" to="acknowledgement" />

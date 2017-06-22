@@ -45,7 +45,7 @@
                    <h3 class="panel-title">Product Data Table</h3>
                  </div>
                  <div class="col col-xs-6 text-right">
-                   <button type="button" class="btn btn-sm btn-primary btn-create">Create New</button>
+                    <a href="adding" class="btn btn-info" role="button">Create New</a>
                  </div>
                </div>
              </div>
@@ -64,18 +64,21 @@
                  </thead>
                  <tbody>
                          
-                         <c:forEach items="${product}" var="p">
+                         <c:forEach items="${plist}" var="p">
                          <tr>
                          <td>
-                             <a class="btn btn-default"><em class="fa fa-pencil"></em></a>
-                             <a class="btn btn-danger"><em class="fa fa-trash"></em></a>
+                          <a class="btn btn-default" href="./product_edit?id=${p.productid}"><em class="fa fa-pencil"></em></a>
+                             <a class="btn btn-danger" href="./product_delete?id=${p.productid}" ><em class="fa fa-trash"></em></a>
+                         <!--     <a class="btn btn-default"><em class="fa fa-pencil"></em></a>
+                             <a class="btn btn-danger"><em class="fa fa-trash"></em></a> -->
                            </td>
                            <td class="hidden-xs">${p.productid}</td>
                            <td>${p.productname}</td>
                           <td>${p.categoryid.categoryname}</td>     
                            <td>${p.suplierid.suppliername}</td>    
-                           <td>${p.productprice}</td> 
-                           <td><%-- <img src="./resources/uploads/products/${p.imageName}"  class="img-rounded" alt="${p.name }" width="75px" height="50px"/> --%></td>         
+                           <td>${p.productprice}</td>
+                           <%-- <td>${p.p_image }</td>  --%>
+                           <td> <img src="${pageContext.request.contextPath}/resources/images/${p.p_image}"  class="img-rounded" alt="" width="75px" height="50px"/> </td>         
                            <tr>       
                          </c:forEach>
                        </tbody>

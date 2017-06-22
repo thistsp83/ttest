@@ -27,7 +27,7 @@
          <span>Category is added Sucessfully</span>
         </div>
         <div class="modal-footer">
-          <a href="CategoryList" class="btn btn-info" role="button">View Category List </a>
+          <a href="adding" class="btn btn-info" role="button">Ok </a>
         </div>
       </div>
 

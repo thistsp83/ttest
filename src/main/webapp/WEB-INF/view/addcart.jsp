@@ -119,7 +119,7 @@
 						<div class="panel-footer">
 							<div class="row text-center">
 								<div class="col-xs-3">
-									<a href="Welcomepage" class="btn btn-primary btn-sm btn-block">Continue
+									<a href="index" class="btn btn-primary btn-sm btn-block">Continue
 										Shopping</a>
 								</div>
 								<c:if test="${empty EmptyCart}">

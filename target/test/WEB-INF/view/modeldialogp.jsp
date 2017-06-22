@@ -27,7 +27,10 @@
          <span>Product data is added successfully</span>
         </div>
         <div class="modal-footer">
-          <a href="productlistview" class="btn btn-info" role="button">View ProductList </a>
+          <a href="adding" class="btn btn-info" role="button">Ok </a>
+        </div>
+        <div class="modal-footer">
+          <a href="productlistview" class="btn btn-info" role="button">View Product Details </a>
         </div>
       </div>
 

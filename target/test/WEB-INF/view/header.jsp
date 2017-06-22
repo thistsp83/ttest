@@ -67,7 +67,7 @@
 			</button>
 							
 			<a class="navbar-brand" href="./">				
-				<img src='<c:url value="resources/images/logo.png" />' width="50px" height="25px" class="img-responsive"/>
+				<img src='<c:url value="resources/images/logo1.jpg" />' width="50px" height="25px" class="img-responsive"/>
 			</a>
 		</div>		
 		
@@ -88,8 +88,8 @@
 			</ul>
 		            <li><a href="CategoryList">CategoryList</a></li>
                     <li><a href="supplierlist">SupplierList</a></li>
-                    <li><a href="productlist">ProductList</a></li>
-        			<li><a href="individualitem">Add Cart</a></li>
+                    <li><a href="plistview">ProductList</a></li>
+        			<li><a href="productsdetails">Add Cart</a></li>
 		
 			    <li>
 					<form class="navbar-form navbar-left">

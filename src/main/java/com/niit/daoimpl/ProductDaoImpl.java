@@ -36,7 +36,7 @@ public class ProductDaoImpl implements ProductDAO{
         // TODO Auto-generated method stub
         return p;
     }*/
-
+   // @Transactional
     public void updateCategoryDetail(Product obj) {
         // TODO Auto-generated method stub
     	   Session s=sessionFactory.openSession();

@@ -44,7 +44,7 @@ public class HomeController {
 	private UserDaoImpl userD;
 	@Autowired
 	private ProductDaoImpl productdaoimpl;
-	private static final String UPLOAD_DIRECTORY ="/resources/images/";
+	private static final String UPLOAD_DIRECTORY ="./resources/images/";
 	@RequestMapping(value="/")
 	public ModelAndView homepage()
 	{
@@ -73,7 +73,7 @@ public class HomeController {
 		um.setEmail(request.getParameter("useremail"));
 		um.setAge(Integer.parseInt(request.getParameter("userage")));
 		um.setCity(request.getParameter("usercity"));
-		um.setEnabled(false);
+		um.setEnabled(true);
 		um.setGender(request.getParameter("usergender"));
 		um.setPhone(request.getParameter("userphone"));
 		um.setRole("ROLE_USER");
@@ -94,15 +94,22 @@ public class HomeController {
 		return m1;
 		
 	}
+	@RequestMapping(value="/thanks")
+	public ModelAndView setThanks()
+	{
+		ModelAndView m1=new ModelAndView("thanks");
+		return m1;
+		
+	}
 	
 
-   @RequestMapping(value="/login")
+ /*  @RequestMapping(value="/login")
 	public ModelAndView loginpage()
 	{
 		ModelAndView m2=new ModelAndView("login");
 		return m2;
 		
-	}
+	}*/
 @RequestMapping(value="/registerpage")
   public ModelAndView registerpage()
   {
@@ -168,11 +175,19 @@ public ModelAndView listSupplier() {
 
 	return mv;
 }
-@RequestMapping("/productlist")
+@RequestMapping("/plistview")
+public ModelAndView listProductList() {
+	//supplierdaoimpl.getSave();
+	ModelAndView mv = new ModelAndView("plistview");
+	mv.addObject("plist", productdaoimpl.getAllProdcutsDetails());
+
+	return mv;
+}
+@RequestMapping("admin/productlistview")
 public ModelAndView listProdduct() {
 	//supplierdaoimpl.getSave();
-	ModelAndView mv = new ModelAndView("productlist");
-	mv.addObject("prolist", productdaoimpl.getAllProducts());
+	ModelAndView mv = new ModelAndView("productlistview");
+	mv.addObject("plist", productdaoimpl.getAllProdcutsDetails());
     
 	return mv;
 }
@@ -186,8 +201,8 @@ public ModelAndView product() {
 	return mv;
 }
 
-/*
-@RequestMapping(value="/actionCat", method = RequestMethod.POST)
+
+@RequestMapping(value="admin/actionCat", method = RequestMethod.POST)
 public ModelAndView addCategory(@RequestParam("cid") int cid, @RequestParam("cname") String cname) 
 {
 	
@@ -203,7 +218,7 @@ public ModelAndView addCategory(@RequestParam("cid") int cid, @RequestParam("cna
 
 }
 	
-@RequestMapping(value="/actionSup", method = RequestMethod.POST)
+@RequestMapping(value="admin/actionSup", method = RequestMethod.POST)
 public ModelAndView addSupplier(@RequestParam("sid") int sid, @RequestParam("sname") String sname) 
 {
 	Supplier c=new Supplier();
@@ -214,8 +229,54 @@ public ModelAndView addSupplier(@RequestParam("sid") int sid, @RequestParam("sna
 	supplierdaoimpl.addSupplier(c);
 	return new ModelAndView("modeldialogs"); 
 }
+@RequestMapping("/p1-details")
+public ModelAndView details(HttpServletRequest request){
+   	
+   	int id=Integer.parseInt(request.getParameter("id"));
+    Product p=productdaoimpl.findById(id);
+		ModelAndView mv = new ModelAndView("productsdetails");
+		List<Category> c=categorydaoimpl.getAll();
+		mv.addObject("clist",c);
+		mv.addObject("plist", p);
+		return mv;
+	 
+}
+@RequestMapping(value ="admin/product_delete")
+public ModelAndView delete(HttpServletRequest request)
+{
 
-@RequestMapping(value="/actionProd", method = RequestMethod.POST)
+	Product p=productdaoimpl.findById(Integer.parseInt(request.getParameter("id")));
+	System.out.print(p);
+	productdaoimpl.delete(p);
+	List<Product> list=productdaoimpl.getAllProdcutsDetails();
+	ModelAndView mv = new ModelAndView("modeldialogpd");	
+	mv.addObject("list",list);
+	return mv;
+}
+@RequestMapping(value="admin/product_edit")
+public ModelAndView editProducts(HttpServletRequest request){	
+	int id=Integer.parseInt(request.getParameter("id"));
+	System.out.println(id);
+	ModelAndView mv=new ModelAndView("producteditview");
+	List<Category> clist=categorydaoimpl.getAll();
+	List<Supplier> slist=supplierdaoimpl.getSave();
+	System.out.println(productdaoimpl.findById(id));
+	mv.addObject("product",productdaoimpl.findById(id) );	
+	mv.addObject("slist", slist);
+	mv.addObject("clist", clist);
+	return mv;
+}
+/*@RequestMapping(value ="admin/producteditview")
+public ModelAndView getlist() 
+{
+	ModelAndView mv=new ModelAndView("producteditview");
+	List<Product>list=productdaoimpl.getAllProdcutsDetails();
+	mv.addObject("list", list);
+return mv;
+
+
+}*/
+@RequestMapping(value="admin/actionProd", method = RequestMethod.POST)
 public ModelAndView addProduct(@RequestParam("file") MultipartFile file,HttpServletRequest request)
 {
 
@@ -225,14 +286,25 @@ public ModelAndView addProduct(@RequestParam("file") MultipartFile file,HttpServ
 	Double price=Double.parseDouble(request.getParameter("pprice"));
 	int cid=Integer.parseInt(request.getParameter("categoryitems"));
 	int sid=Integer.parseInt(request.getParameter("supplieritems"));
-	String filename=id+file.getOriginalFilename();
+	String filename=file.getOriginalFilename();
 	System.out.println(id+"-"+pname+"-"+price+"-"+cid+"-"+sid+"---");
-	Category c=categorydaoimpl.getId(cid);
+	Category c=categorydaoimpl.findById(cid);
 	Supplier s=supplierdaoimpl.getId(sid);
+	//Product p=new Product(id,pname,price,s,c,filename);
+	Product p=new Product();
+	p.setProductid(id);
+	p.setProductname(pname);
+	p.setProductprice(price);
+	p.setSuplierid(s);
+	p.setCategoryid(c);
 	
-	productdaoimpl.addProduct(new Product(id, pname, price, c, s,filename));
+	List<Category> list=categorydaoimpl.getAll();
+	List<Supplier> slist=supplierdaoimpl.getSave();
+	p.setP_image(filename);
+	productdaoimpl.addProducts(p);
+
 	
-	String path =request.getSession().getServletContext().getRealPath(UPLOAD_DIRECTORY);  
+	String path =request.getSession().getServletContext().getRealPath("/");  
     
     System.out.println(path+""+filename);  
   
@@ -240,7 +312,7 @@ public ModelAndView addProduct(@RequestParam("file") MultipartFile file,HttpServ
 	try {
 		bytes = file.getBytes();
 		 BufferedOutputStream stream;
-		stream = new BufferedOutputStream(new FileOutputStream(path+filename));
+		stream = new BufferedOutputStream(new FileOutputStream(path+"./resources/images/"+filename));
 		stream.write(bytes);  
 	    stream.flush();  
 	    stream.close();
@@ -255,6 +327,55 @@ public ModelAndView addProduct(@RequestParam("file") MultipartFile file,HttpServ
 	ModelAndView mv = new ModelAndView("modeldialogp");
 	
 	return mv;
+}
+@RequestMapping(value = "admin/product_update", method = RequestMethod.POST)
+public  ModelAndView updateProduct(@RequestParam("file") MultipartFile file, 
+  HttpServletRequest request) {
+
+  System.out.println("WELCOME");
+ int pid=Integer.parseInt(request.getParameter("p_id"));
+ String pname=request.getParameter("p_name");
+ Double price=Double.parseDouble(request.getParameter("p_price"));
+ int cid=Integer.parseInt(request.getParameter("c_id"));
+ System.out.println("CATEGORY ID ---- "+cid);
+ int sid=Integer.parseInt(request.getParameter("s_id"));
+ String filename=pid+file.getOriginalFilename();
+ Category c=categorydaoimpl.findById(cid);
+ Supplier s=supplierdaoimpl.getId(sid);
+ Product p=new Product();
+	p.setProductid(pid);
+	p.setProductname(pname);
+	p.setProductprice(price);
+	p.setCategoryid(c);
+	p.setSuplierid(s);
+	
+	
+	List<Category> clist=categorydaoimpl.getAll();
+	List<Supplier> slist=supplierdaoimpl.getSave();
+	p.setP_image(filename);
+	String path =request.getSession().getServletContext().getRealPath("/"); 
+ //String path =request.getSession().getServletContext().getRealPath(UPLOAD_DIRECTORY);  
+ productdaoimpl.updateCategoryDetail(p);//(new Product(pid, pname, price, c, s,filename)));
+    System.out.println(path+""+filename);  
+ 
+
+    byte barr[];
+ try { 
+  barr = file.getBytes();
+       /* BufferedOutputStream bout=new BufferedOutputStream(  
+                 new FileOutputStream(path+filename)); */ 
+        BufferedOutputStream bout = new BufferedOutputStream(new FileOutputStream(path+"./resources/images/"+filename));
+        bout.write(barr);  
+        bout.flush();  
+        bout.close();  
+ } catch (IOException e) {   
+  e.printStackTrace();
+ }  
+
+    ModelAndView mv = new ModelAndView("modeldialogpu");
+    mv.addObject("slist", slist);
+	mv.addObject("clist", clist);
+ return mv;
 }
 
 @SuppressWarnings("restriction")
@@ -288,6 +409,5 @@ private void callScript()
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-}*/
-
+}
 }

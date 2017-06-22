@@ -13,10 +13,9 @@ import javax.persistence.Table;
 //Entity Mapped to the table
 @Entity	
 @Table(name="CART")
-
 public class Cart implements Serializable{
 	private static final long serialVersionUID = 1L;
-	@Id
+	//@Id
      private int cartid;
 	//private int suplierid;
 	//private int productid;
@@ -39,7 +38,7 @@ public class Cart implements Serializable{
 	private String status;
 	
 	@Id
-	//@GeneratedValue
+	@GeneratedValue
 	@Column(name="cartid")//defining the database column
 	public int getCartid() {
 		return cartid;
@@ -57,7 +56,7 @@ public class Cart implements Serializable{
 			this.productid = productid;
 		}
 		@OneToOne
-		@JoinColumn(name="supplierid")
+		@JoinColumn(name="suplierid")
 		public Supplier getSuplierid() {
 			return suplierid;
 		}

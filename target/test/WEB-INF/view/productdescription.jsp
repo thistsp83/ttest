@@ -16,7 +16,7 @@
 
 </head>
 <body>
-<form class="form-horizontal" action="#">
+<form class="form-horizontal" action="cart">
 <button type="submit" class="btn btn-primary">Add to Cart</button>
 </form>
 </body>

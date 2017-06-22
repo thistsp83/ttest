@@ -13,7 +13,6 @@ import javax.persistence.Table;
 //Entity Mapped to the table
 @Entity	
 @Table(name="ORDER")
-
 public class Order implements Serializable {
 	private static final long serialVersionUID = 1L;
     @Id

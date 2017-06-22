@@ -44,7 +44,7 @@
 						
 						<div class="form-group">
 							<input type="text" class="form-control btn-block"
-								value="${product.productdescription}" readonly="readonly">
+								value="${product.productdiscription}" readonly="readonly">
 						</div>
 
 						<c:choose>

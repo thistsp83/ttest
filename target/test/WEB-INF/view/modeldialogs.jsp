@@ -27,7 +27,7 @@
          <span>Supplier data is added Successfully....</span>
         </div>
         <div class="modal-footer">
-          <a href="supplierlist" class="btn btn-info" role="button">View SupplierList </a>
+          <a href="adding" class="btn btn-info" role="button">Ok </a>
         </div>
       </div>
 

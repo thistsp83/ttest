@@ -203,7 +203,7 @@ li {
 						<div class="carousel-inner" role="listbox">
 							<div class="item active">
 								<img
-									src="<c:url value="/resources/images/corousel/macbookpro pics.jpg"></c:url>"
+									src="<c:url value="/resources/images/corousel/image1.jpg"></c:url>"
 									alt="Apple">
 								<div class="carousel-caption">
 									<span></span>
@@ -211,7 +211,7 @@ li {
 							</div>
 							<div class="item">
 								<img
-									src="<c:url value="/resources/images/corousel/smart.jpg"></c:url>"
+									src="<c:url value="/resources/images/corousel/image2.jpg"></c:url>"
 									alt="Apple">
 								<div class="carousel-caption">
 									<span></span>
@@ -219,7 +219,7 @@ li {
 							</div>
 							<div class="item">
 								<img
-									src="<c:url value="/resources/images/corousel/nexus.jpg"></c:url>"
+									src="<c:url value="/resources/images/corousel/image3.jpg"></c:url>"
 									alt="Sony">
 								<div class="carousel-caption">
 									<span></span>
@@ -227,7 +227,7 @@ li {
 							</div>
 							<div class="item">
 								<img
-									src="<c:url value="/resources/images/corousel/DSLR.jpg"></c:url>"
+									src="<c:url value="/resources/images/corousel/image4.jpg"></c:url>"
 									alt="HP">
 								<div class="carousel-caption">
 									<span></span>
@@ -235,7 +235,7 @@ li {
 							</div>
 							<div class="item">
 								<img
-									src="<c:url value="/resources/images/corousel/gamingconsole.jpg"></c:url>"
+									src="<c:url value="/resources/images/corousel/image5.jpg"></c:url>"
 									alt="Dell">
 								<div class="carousel-caption">
 									<span></span>

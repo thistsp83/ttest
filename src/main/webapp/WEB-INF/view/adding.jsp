@@ -23,50 +23,7 @@
   <%@page import="com.niit.model.Category" %>
     <%@page import="com.niit.model.Supplier" %>
     <%@page import="java.util.List" %>
- <script>
-$(function () {
-    'use strict';
-
-    function confirmDialog(title, message, success) {
-        var confirmdialog = $('<div></div>').appendTo('body')
-            .html('<div><h3>'+message+'</h3></div>')
-            .dialog({
-                modal: true,
-                title: title,
-                zIndex: 10000,
-                autoOpen: false,
-               
-                width: '300px',
-                resizable: true,
-                buttons: {
-                    Yes: function () {
-                        success();
-                        $(this).dialog("close");
-                    },
-                    No: function () {
-                        $(this).dialog("close");
-                    }
-                },
-                close: function() {
-                    $(this).remove();
-                }
-            });
-
-        return confirmdialog.dialog("open");
-    }
-
-    $('form').on('submit', function (e) {
-        e.preventDefault();
-        var form = this;
-
-        confirmDialog('Confirm', 'Shell i Get the Data ?', function () {
-            form.submit();
-        });
-    });
-});
-
-</script>
-</head>
+    </head>
 <body>
 
 <div class="panel panel-primary">
@@ -74,6 +31,11 @@ $(function () {
   <!-- Header Content -->
    <jsp:include page="header.jsp"/>
 </div>
+<br>
+<br>
+ <div class="form-horizontal">
+          <a href="productlistview" class="btn btn-info" role="button">View Product Details </a>
+        </div>
 <br>
 <br>
 <div class="panel-body">

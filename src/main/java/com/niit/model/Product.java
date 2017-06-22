@@ -25,6 +25,7 @@ public class Product implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
+	@GeneratedValue
 	  @Column(name="productid")
 		private int productid;
 	  @Column(name="productbrand")
@@ -161,6 +162,17 @@ public class Product implements Serializable{
 		this.productbrand = productbrand;
 		this.productname = productname;
 		this.productdiscription = productdiscription;
+		this.productprice = productprice;
+		this.categoryid = categoryid;
+		this.suplierid = suplierid;
+		this.p_image = p_image;
+	}
+	public Product(int productid, String productname, double productprice, Category categoryid, Supplier suplierid, String p_image) {
+		super();
+		this.productid = productid;
+		//this.productbrand = productbrand;
+		this.productname = productname;
+		//this.productdiscription = productdiscription;
 		this.productprice = productprice;
 		this.categoryid = categoryid;
 		this.suplierid = suplierid;

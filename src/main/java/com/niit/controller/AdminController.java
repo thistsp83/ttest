@@ -35,8 +35,8 @@ import com.niit.model.Supplier;
 import com.niit.model.*;
 import com.niit.model.Product;
 //@SuppressWarnings("unused")
-@RequestMapping("/admin")
-@Controller
+/*@RequestMapping("/admin")
+@Controller*/
 public class AdminController {
 	@Autowired
 	private CategoryDaoImpl categorydaoimpl;
@@ -46,9 +46,9 @@ public class AdminController {
 	private UserDaoImpl userD;
 	@Autowired
 	private ProductDaoImpl productdaoimpl;
-	private static final String UPLOAD_DIRECTORY ="/resources/images/";
+	private static final String UPLOAD_DIRECTORY ="./resources/images/";
 	
-	@RequestMapping("admin/signup")
+	/*@RequestMapping("admin/signup")
 	public ModelAndView signup() 
 	{
 		 ModelAndView mv = new ModelAndView("signup");
@@ -183,6 +183,6 @@ public class AdminController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
+	}*/
 
 }

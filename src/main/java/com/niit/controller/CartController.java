@@ -33,7 +33,7 @@ import com.niit.model.Supplier;
 //import com.niit.dao.*;
 import com.niit.model.*;
 import com.niit.model.Product;
-@RequestMapping("/user")
+//@RequestMapping("/user")
 @Controller
 public class CartController {
 	@Autowired
@@ -46,6 +46,120 @@ public class CartController {
 		 ModelAndView mv = new ModelAndView("ulogin");
 		  return mv;
 	}
+	@RequestMapping("/cartview")
+	public ModelAndView viewCart(){
+		
+		ModelAndView mv=new ModelAndView("cartview");
+		List<Cart> cartList=cartdaoimpl.getAll();
+		
+		mv.addObject("cartlist", cartList);
+		return mv;
+	}
+	@RequestMapping("/viewcart")
+	public ModelAndView viewCartview(){
+		
+		ModelAndView mv=new ModelAndView("viewcart");
+		List<Cart> cartList=cartdaoimpl.getAll();
+		
+		mv.addObject("cartlist", cartList);
+		return mv;
+	}
+	/*@RequestMapping("/productsdetails")
+	public ModelAndView viewProduct(){
+		
+		ModelAndView mv=new ModelAndView("productsdetails");
+		List<Product> plist=productdaoimpl.getAllProdcutsDetails();
+		
+		mv.addObject("plist", plist);
+		return mv;
+	}*/
+	
+	
+	@RequestMapping(value="/cart",method = RequestMethod.POST)
+	public ModelAndView addCart(HttpServletRequest request){
+		int id=Integer.valueOf(request.getParameter("id"));
+		int q=Integer.valueOf(request.getParameter("q"));
+		
+		Product p=productdaoimpl.findById(id);
+		double price=p.getProductprice();
+		Cart c=new Cart();
+	    c.setPrices((int)price); 
+		c.setQuantity(q);
+		 
+		c.setProductid(p);
+		c.setCartid(1);
+		
+		List<Cart> list=cartdaoimpl.checkExistance(id);
+		int count=list.size();
+		System.out.println("No of times: "+count);
+		if(count==0)
+		{
+		
+		cartdaoimpl.save(c);
+		}
+		else
+		{
+
+        Cart cart=cartdaoimpl.findById(list.get(0).getCartid());
+        double ex=cart.getQuantity();
+        System.out.println("-----------Existance Count ="+ex+"\n current Count = "+q+"------------\n---Total =-"+(ex+q));
+        double tot=ex+q;
+        cart.setQuantity(count);
+        cartdaoimpl.update(cart);
+		}
+		
+		System.out.println(c);
+		
+		ModelAndView mv=new ModelAndView("cartview");
+		List<Cart> cartlist=cartdaoimpl.getAllCarts();
+		
+		mv.addObject("cartlist", cartlist);
+		return mv;
+		
+	}
+	
+	@RequestMapping("/customerdetails")
+	public ModelAndView customer(HttpServletRequest request)
+	{
+		double tot=Double.parseDouble(request.getParameter("tot"));
+		
+		ModelAndView mv=new ModelAndView("customerdetails");
+		mv.addObject("tot", tot);
+		return mv;
+	}
+   
+   @RequestMapping("/invoice")
+	public ModelAndView invoice(HttpServletRequest request)
+	{
+		String name=request.getParameter("name");
+		String add=request.getParameter("add");
+		String phone=request.getParameter("contact_no");
+		String email=request.getParameter("email");
+		String tot=request.getParameter("tot");
+		ModelAndView mv=new ModelAndView("invoice");
+		mv.addObject("name", name);
+		mv.addObject("add", add);
+		mv.addObject("phone", phone);
+		mv.addObject("email", email);
+		mv.addObject("tot", tot);
+		return mv;
+	}
+
+   
+   @RequestMapping("/cart_delete")
+	public ModelAndView deleteCart(HttpServletRequest request)
+	{
+		int cid=Integer.valueOf(request.getParameter("id"));
+		Cart c=cartdaoimpl.getId(cid);
+		cartdaoimpl.deleteById(cid);
+		
+		ModelAndView mv=new ModelAndView("cartview");
+		List<Cart> cartList=cartdaoimpl.getAllCarts();
+		
+		mv.addObject("cartlist", cartList);
+		return mv;
+	}
+
 /*	@RequestMapping("user/addcart")
 	public ModelAndView addToCart(@PathVariable("id") int Productid, @PathVariable("userId") int userId,
 			@RequestParam("quantity") int q, HttpSession session) throws Exception

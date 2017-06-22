@@ -60,20 +60,20 @@ public class CategoryDaoImpl implements CategoryDAO{
 				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 		//@SuppressWarnings("unchecked")*/
 		
-			/*Session s=sessionFactory.openSession();
+			Session s=sessionFactory.openSession();
 			s.beginTransaction();
 			Query query =s.createQuery("from Category");        
 			List<Category> list=query.list();
 			System.out.println(list);
 			s.getTransaction().commit();
 		    //List<Category> c=new ArrayList<Category>();
-			return list;*/
-		Session session=sessionFactory.openSession();
+			return list;
+		/*Session session=sessionFactory.openSession();
 		List<Category> products =null;
 		session.beginTransaction();
 		products= session.createQuery("from Category").list();   
 		session.getTransaction().commit();
-		  return products;
+		  return products;*/
 		
 	}
 
@@ -83,8 +83,8 @@ public class CategoryDaoImpl implements CategoryDAO{
 	public Category findById(int id) 
 	{
 		
-		//Category c=(Category)sessionFactory.openSession().get(Category.class, id);
-		Category c=new Category();
+		Category c=(Category)sessionFactory.openSession().get(Category.class, id);
+		//Category c=new Category();
 		return c;
 	}
 

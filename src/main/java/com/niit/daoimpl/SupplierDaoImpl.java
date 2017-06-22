@@ -28,7 +28,11 @@ public class SupplierDaoImpl implements SupplierDAO{
 
 	public Supplier getId(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		Supplier supplier = (Supplier) sessionFactory.openSession().get(Supplier.class, id);
+
+        return supplier;
+
+		//return null;
 	}
 
 	public void update(Supplier supplier) {
@@ -38,7 +42,7 @@ public class SupplierDaoImpl implements SupplierDAO{
 
 	public void deleteById(int id) {
 		// TODO Auto-generated method stub
-		
+		getCurrentSession().delete(id);
 	}
 
 	public List<Supplier> getSave() {

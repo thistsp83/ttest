@@ -67,7 +67,7 @@
 			</button>
 							
 			<a class="navbar-brand" href="./">				
-				<img src='<c:url value="resources/images/logo1.jpg" />' width="50px" height="25px" class="img-responsive"/>
+				<img src='<c:url value="${pageContext.request.contextPath}resources/images/logo1.jpg" />' width="50px" height="25px" class="img-responsive"/>
 			</a>
 		</div>		
 		
@@ -84,8 +84,8 @@
 					</ul>
 				</li> -->
 					<li><a href="<c:url value="admin/adding"/>" role="button" aria-haspopup="true"
-					aria-expanded="false">Add Products</a></li>
-					 <li><a href="plistview">Product List</a></li>
+					aria-expanded="false">Add Video CD Details</a></li>
+					 <li><a href="plistview">Available Video CD List</a></li>
 					 <li><a href="CategoryList">CategoryList</a></li>
                     <li><a href="supplierlist">SupplierList</a></li>
 			</ul>
@@ -104,7 +104,7 @@
 				<c:if test="${pageContext.request.userPrincipal.name  == 'admin'}">
                                 <li><a href="<c:url value="/admin" />">Admin</a></li>
                  </c:if>
-                 </ul>
+                 
 			  <ul class="nav navbar-nav navbar-right">
 			  <c:if test="${pageContext.request.userPrincipal.name == null }">
 					<li>

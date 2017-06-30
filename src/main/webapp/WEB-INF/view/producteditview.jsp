@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Product Edit View</title>
+<title>Video CD'S Edit View</title>
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css" type="text/css">
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 	<script src="./resources/js/jquery.min.js"></script>
@@ -29,15 +29,15 @@
 
 <div class="container">
 <div class="row">
-<h2>Edit Product Details</h2>
+<h2>Edit Video CD Details</h2>
 <hr/>
   <form action="product_update"  method="post"  enctype="multipart/form-data">
     <div class="form-group">
-      <label for="p_id">Product  ID :</label>
+      <label for="p_id">Video CD  ID :</label>
       <input type="text" class="form-control" id="p_id" name="p_id" value="${product.productid}" required="required">
     </div>
     <div class="form-group">
-      <label for="p_name">Product Name :</label>
+      <label for="p_name">Video CD Name :</label>
       <input type="text" class="form-control" id="p_name"  name="p_name" value="${product.productname}" required="required">
     </div>
     <%-- <div class="form-group">
@@ -45,11 +45,11 @@
       <input type="text" class="form-control" id="p_desc" placeholder="Enter Product Description " name="desc"value="${product.productdiscription}" required >
     </div> --%>
     <div class="form-group">
-      <label for="p_price">Product Price :</label>
+      <label for="p_price">Video CD Price :</label>
       <input type="text" class="form-control" id="p_price"  name="p_price"value="${product.productprice}" required="required">
     </div>
     <div class="form-group">
-  <label class="col-md-4 control-label" for="c_id" >Select Category</label>
+  <label class="col-md-4 control-label" for="c_id" >Select Video CD Category</label>
   <div class="col-md-4">
     <select id="c_id" class="form-control" name="c_id">
       <c:forEach var="list" items="${clist}">
@@ -63,7 +63,7 @@
 <br/>
 <br/>
 <div class="form-group">
-  <label class="col-md-4 control-label" for="s_id" >Select Supplier</label>
+  <label class="col-md-4 control-label" for="s_id" >Select Video CD Supplier</label>
   <div class="col-md-4">
     <select id="s_id" class="form-control" name="s_id">
       <c:forEach var="list" items="${slist}">

@@ -8,7 +8,7 @@
 	 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <head>
 	<meta charset="utf-8" />
-	<title>Product View</title>
+	<title>Video CD List View</title>
 	
 	<link rel="stylesheet" href="./resources/css/bootstrap.min.css" type="text/css">
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -33,7 +33,7 @@
 <div class="row">
    
    <p></p>
-   <h1>Products List</h1>   
+   <h1>Video CD List</h1>   
    <p> </p><p> </p>
    
        <div class="col-md-10 col-md-offset-1">
@@ -42,10 +42,10 @@
              <div class="panel-heading">
                <div class="row">
                  <div class="col col-xs-6">
-                   <h3 class="panel-title">Product Data Table</h3>
+                   <h3 class="panel-title">Video CD List</h3>
                  </div>
                  <div class="col col-xs-6 text-right">
-                    <a href="adding" class="btn btn-info" role="button">Create New</a>
+                    <a href="adding" class="btn btn-info" role="button">Create New Video CD Details</a>
                  </div>
                </div>
              </div>
@@ -54,12 +54,12 @@
                  <thead>
                    <tr>
                        <th><em class="fa fa-cog"></em></th>
-                       <th class="hidden-xs">ID</th>
-                       <th>Name</th>
-                       <th>Category</th>
+                       <th class="hidden-xs">Video CD ID</th>
+                       <th>Video CD Name</th>
+                       <th>Video CD Category</th>
                        <th>Supplier</th>
-                       <th>Price</th>
-                       <th>Image</th>                                                                        
+                       <th>Video CD Price</th>
+                       <th>Video CD Image</th>                                                                        
                    </tr> 
                  </thead>
                  <tbody>

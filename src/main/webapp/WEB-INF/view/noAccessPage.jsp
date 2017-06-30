@@ -8,5 +8,6 @@
 </head>
 <body>
 Access Denied......
+<a href="index" class="btn btn-info" role="button">Click here </a>
 </body>
 </html>

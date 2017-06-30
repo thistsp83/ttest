@@ -7,7 +7,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Adding Details</title>
+<title>Video CD Adding Details</title>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -43,32 +43,32 @@
 <form class="form-horizontal" action="actionProd"  method="post" enctype="multipart/form-data" >
  <fieldset>
 
-<legend>Add Product</legend>
-<div class="form-group">
+<legend>Add Video CD Details</legend>
+<!-- <div class="form-group">
   <label class="col-md-4 control-label" for="fn">Product Id</label>  
   <div class="col-md-4">
   <input id="pid" name="pid" type="text" required="required">
     
   </div>
-</div>
+</div> -->
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="ln">Product Name</label>  
+  <label class="col-md-4 control-label" for="ln">Video CD Name</label>  
   <div class="col-md-4">
   <input id="pname" name="pname" type="text" required="required">
     
   </div>
 </div>
 <div class="form-group">
-  <label class="col-md-4 control-label" for="ln">Product Price</label>  
+  <label class="col-md-4 control-label" for="ln">Video CD Price</label>  
   <div class="col-md-4">
   <input id="pprice" name="pprice" type="text" required="required">
     
   </div>
 </div>
 <div class="form-group">
-  <label class="col-md-4 control-label" for="ln">Product Category</label> 
+  <label class="col-md-4 control-label" for="ln">Video CD Category</label> 
   <div class="col-md-4"> 
    <select name="categoryitems" id="categoryitems" style="width:150px;">
     <option  selected="selected">Category</option>
@@ -89,7 +89,7 @@
 </div>
 </div>
 <div class="form-group">
-   <label class="col-md-4 control-label" for="ln">Product Supplier</label>
+   <label class="col-md-4 control-label" for="ln">Video CD Supplier</label>
    <div class="col-md-4">
    <select name="supplieritems" id="supplieritems" style="width:150px;">
     <option  selected="selected">Supplier</option>
@@ -103,7 +103,7 @@
   </div>
   <div class="form-group">
   <div class="form-group">
-   <label class="control-label" for="productImage">Upload Picture
+   <label class="control-label" for="productImage">Upload Image
    </label>
    <input name="file" id="fileToUpload" type="file" />
   
@@ -132,7 +132,7 @@
  <fieldset>
 
 <!-- Form Name -->
-<legend>Add Category</legend>
+<legend>Add Video CD Category</legend>
   <div class="form-group">
   <label class="col-md-4 control-label" for="fn">Category Id</label>  
   <div class="col-md-4">
@@ -163,7 +163,7 @@
              <fieldset>
 
 <!-- Form Name -->
-<legend>Add Supplier</legend>
+<legend>Add Video CD Supplier's Details</legend>
                  <div class="form-group">
   <label class="col-md-4 control-label" for="fn">Supplier Id</label>  
   <div class="col-md-4">

@@ -8,7 +8,7 @@
 	 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <head>
 	<meta charset="utf-8" />
-	<title>Product list View</title>
+	<title>Video CD list View</title>
 	
 	<link rel="stylesheet" href="./resources/css/bootstrap.min.css" type="text/css">
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -23,6 +23,7 @@
 <jsp:include page="header.jsp"/>
 <br/>
 <br/>
+Please Click the Image to Buy the CD's.
 <br/>
 <br/>
  
@@ -30,7 +31,7 @@
 <div class="row">
    
    <p></p>
-   <h1>product List view</h1>   
+   <h1>Video CD List view</h1>   
    <p> </p><p> </p>
    
        <div class="col-md-10 col-md-offset-1">
@@ -39,7 +40,7 @@
              <div class="panel-heading">
                <div class="row">
                  <div class="col col-xs-6">
-                   <h3 class="panel-title">List Table</h3>
+                   <h3 class="panel-title">Video CD Lists</h3>
                  </div>
                 <!--  <div class="col col-xs-6 text-right">
                    <button type="button" class="btn btn-sm btn-primary btn-create">Create New</button>
@@ -51,12 +52,12 @@
                  <thead>
                    <tr>
                        <%--  <th><class="fa fa-cog"> </th> --%>
-                       <th class="hidden-xs">ID</th>
-                       <th>Name</th>
-                       <th>Category</th>
-                       <th>Supplier</th>
-                       <th>Price</th>
-                       <th>Image</th>                                                                        
+                       <th class="hidden-xs">Video CD ID</th>
+                       <th>Video CD Name</th>
+                       <th>Video CD Category</th>
+                       <th>Video CD Supplier</th>
+                       <th>Video CD Price</th>
+                       <th>Video CD Image</th>                                                                        
                    </tr> 
                  </thead>
                  <tbody>

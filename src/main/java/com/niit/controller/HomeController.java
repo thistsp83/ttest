@@ -183,6 +183,14 @@ public ModelAndView listProductList() {
 
 	return mv;
 }
+@RequestMapping("/noAccessPage")
+public ModelAndView noAccessPageview() {
+	//supplierdaoimpl.getSave();
+	ModelAndView mv = new ModelAndView("noAccessPage");
+	
+    
+	return mv;
+}
 @RequestMapping("admin/productlistview")
 public ModelAndView listProdduct() {
 	//supplierdaoimpl.getSave();
@@ -281,18 +289,18 @@ public ModelAndView addProduct(@RequestParam("file") MultipartFile file,HttpServ
 {
 
 	System.out.println("in Products Controller");
-	int id=Integer.parseInt(request.getParameter("pid"));
+	//int id=Integer.parseInt(request.getParameter("pid"));
 	String pname=request.getParameter("pname");
 	Double price=Double.parseDouble(request.getParameter("pprice"));
 	int cid=Integer.parseInt(request.getParameter("categoryitems"));
 	int sid=Integer.parseInt(request.getParameter("supplieritems"));
 	String filename=file.getOriginalFilename();
-	System.out.println(id+"-"+pname+"-"+price+"-"+cid+"-"+sid+"---");
+	System.out.println("-"+pname+"-"+price+"-"+cid+"-"+sid+"---");
 	Category c=categorydaoimpl.findById(cid);
 	Supplier s=supplierdaoimpl.getId(sid);
 	//Product p=new Product(id,pname,price,s,c,filename);
 	Product p=new Product();
-	p.setProductid(id);
+	//p.setProductid(id);
 	p.setProductname(pname);
 	p.setProductprice(price);
 	p.setSuplierid(s);

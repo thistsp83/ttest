@@ -73,7 +73,7 @@ Please Click the Image to Buy the CD's.
                            <td>${p.productname}</td>
                           <td>${p.categoryid.categoryname}</td>   
                            <td>${p.suplierid.suppliername}</td>    
-                           <td>${p.productprice}</td> <!--shoeprice  -->
+                           <td>${p.productprice}</td> 
                            <td><a href="p1-details?id=${p.productid}"><img src="${pageContext.request.contextPath}/resources/images/${p.p_image}"  class="img-rounded" alt="${p.p_image}" width="75px" height="50px"/> </a></td>         
                            <tr>       
                          </c:forEach>

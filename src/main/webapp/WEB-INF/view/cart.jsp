@@ -117,6 +117,7 @@
 										<div class="col-xs-1" style="padding-top: 22px">
 											<a href="deleteitem/${cart.id}" class="form-control input-sm"><span
 												class="glyphicon glyphicon-trash"> </span></a>
+												<a class="btn btn-default" href="./cart_edit?id=${cart.id}"><em class="fa fa-pencil"></em></a>
 										</div>
 									</div>
 									<hr>

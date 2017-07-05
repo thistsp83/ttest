@@ -4,7 +4,8 @@
 	xmlns:th="http://www.thymeleaf.org">
 	 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 	 <%@ page errorPage = "error.jsp" %>
-<html>
+
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Cart Page</title>
@@ -82,6 +83,7 @@
                            <td>${p.prices*p.quantity}</td>
                             <td>
                              <a class="btn btn-danger" href="./cart_delete?id=${p.cartid}"><em class="fa fa-trash"></em></a>
+                             <a class="btn btn-default" href="./cart_edit?id=${p.cartid}"><em class="fa fa-pencil"></em></a>
                            </td>
                            <tr>  
                             </c:forEach>     

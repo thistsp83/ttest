@@ -53,8 +53,7 @@
      </div>
    </div>
   </nav> --%>
-  
-  <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default">
 	<div class="container-fluid">
 
 		<div class="navbar-header">
@@ -67,8 +66,10 @@
 			</button>
 							
 			<a class="navbar-brand" href="./">				
-				<img src='<c:url value="${pageContext.request.contextPath}resources/images/logo1.jpg" />' width="50px" height="25px" class="img-responsive"/>
-			</a>
+				<%-- <img src='<c:url value="${pageContext.request.contextPath}resources/images/logo1.jpg" />' width="50px" height="25px" class="img-responsive"/>
+			 --%>
+			  <img src="${pageContext.request.contextPath}/resources/images/logo1.jpg"  width="50px" height="30px" class="img-responsive"/>
+			 </a>
 		</div>		
 		
 		<div class="collapse navbar-collapse">

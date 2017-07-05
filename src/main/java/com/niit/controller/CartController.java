@@ -55,15 +55,15 @@ public class CartController {
 		mv.addObject("cartlist", cartList);
 		return mv;
 	}
-	@RequestMapping("/viewcart")
+	/*@RequestMapping("/viewcart")
 	public ModelAndView viewCartview(){
 		
-		ModelAndView mv=new ModelAndView("viewcart");
+		ModelAndView mv=new ModelAndView("cartview");
 		List<Cart> cartList=cartdaoimpl.getAll();
 		
 		mv.addObject("cartlist", cartList);
 		return mv;
-	}
+	}*/
 	/*@RequestMapping("/productsdetails")
 	public ModelAndView viewProduct(){
 		
@@ -101,10 +101,10 @@ public class CartController {
 		{
 
         Cart cart=cartdaoimpl.findById(list.get(0).getCartid());
-        double ex=cart.getQuantity();
+        int ex=cart.getQuantity();
         System.out.println("-----------Existance Count ="+ex+"\n current Count = "+q+"------------\n---Total =-"+(ex+q));
-        double tot=ex+q;
-        cart.setQuantity(count);
+        int tot=ex+q;
+        cart.setQuantity(tot);
         cartdaoimpl.update(cart);
 		}
 		
@@ -115,6 +115,30 @@ public class CartController {
 		
 		mv.addObject("cartlist", cartlist);
 		return mv;
+		//String id=request.getParameter("id");
+		/*int id=Integer.valueOf(request.getParameter("id"));
+		int q=Integer.valueOf(request.getParameter("q"));
+		
+		Product p=productdaoimpl.findById(id);
+		int price=Integer.valueOf((int)p.getProductprice());
+		Cart c=new Cart();
+		
+	    c.setPrices(price);
+		c.setQuantity(q);
+		c.setProductid(p);
+		
+		
+		
+		cartdaoimpl.save(c);
+		
+		System.out.println(c);
+		
+		ModelAndView mv=new ModelAndView("cartview");
+		List<Cart> cartList=cartdaoimpl.getAllCarts();
+		System.out.println(cartList);
+		
+		mv.addObject("cartlist", cartList);
+		return mv;*/
 		
 	}
 	
@@ -159,6 +183,63 @@ public class CartController {
 		mv.addObject("cartlist", cartList);
 		return mv;
 	}
+   @RequestMapping("/cart_edit")
+  	public ModelAndView editCart(HttpServletRequest request)
+  	{
+  		int cid=Integer.valueOf(request.getParameter("id"));
+  		Cart c=cartdaoimpl.findById(cid);
+  		//cartdaoimpl.deleteById(cid);
+  		
+  		ModelAndView mv=new ModelAndView("cartedit");
+  		List<Cart> cartList=cartdaoimpl.getAllCarts();
+  		
+  		mv.addObject("cartlist", c);
+  		return mv;
+  	}
+   @RequestMapping("/cart_update")
+ 	public ModelAndView updateCart(HttpServletRequest request)
+ 	{
+	   int id=Integer.parseInt(request.getParameter("p_id"));
+		int q=Integer.parseInt(request.getParameter("p_name"));
+		
+		/*Product p=productdaoimpl.findById(id);
+		double price=p.getProductprice();
+		Cart c=new Cart();
+	    c.setPrices((int)price); 
+		c.setQuantity(q);
+		 
+		c.setProductid(p);
+		c.setCartid(1);
+		
+		List<Cart> list=cartdaoimpl.checkExistance(id);
+		int count=list.size();
+		System.out.println("No of times: "+count);
+		if(count==0)
+		{
+		
+		cartdaoimpl.save(c);
+		}
+		else
+		{*/
+		List<Cart> list=cartdaoimpl.checkExistance(id);
+		int count=list.size();
+		System.out.println("No of times: "+count);
+       Cart cart=cartdaoimpl.findById(id);
+       int ex=cart.getQuantity();
+       System.out.println("-----------Existance Count ="+ex+"\n current Count = "+q+"------------\n---Total =-"+(ex+q));
+       int tot=ex+q;
+       cart.setQuantity(tot);
+       cartdaoimpl.update(cart);
+		
+		
+		System.out.println(cart);
+		
+		ModelAndView mv=new ModelAndView("cartview");
+		List<Cart> cartlist=cartdaoimpl.getAllCarts();
+		
+		mv.addObject("cartlist", cartlist);
+		return mv;
+ 	}
 
 /*	@RequestMapping("user/addcart")
 	public ModelAndView addToCart(@PathVariable("id") int Productid, @PathVariable("userId") int userId,

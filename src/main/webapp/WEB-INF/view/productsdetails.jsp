@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
-    <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+    <%-- <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %> --%>
     <%@ page errorPage = "error.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <head>
 	<meta charset="utf-8" />
 	<title>Product Details List</title>
@@ -30,7 +31,7 @@
 			<div class="container">	
 			<br/>
 			<br/>
-			<img id="item-display" src="${pageContext.request.contextPath}/resources/images/${plist.p_image}" alt="${p.p_image}" width="400" height="400"></img>
+			<img id="item-display" src="${pageContext.request.contextPath}/resources/images/${plist.p_image}" alt="${plist.p_image}" width="400" height="400"></img>
 						
 					
 				

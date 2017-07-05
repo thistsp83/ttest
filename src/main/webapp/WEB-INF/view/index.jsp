@@ -28,10 +28,10 @@
 <br>
 <br>
 <br>
-<center>
+<%-- <center>
 <!--<img src="./resources/images/mainlogo.jpg" alt="Photo" id="pic" />-->
 <img src="<s:url value="/resources/images/banner.jpg"></s:url>"/>
-</center>
+</center> --%>
 <jsp:include page="header.jsp"></jsp:include>
 <!-- Divider scroll different images -->
 <div class="container">

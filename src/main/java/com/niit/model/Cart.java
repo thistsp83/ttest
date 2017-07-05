@@ -47,7 +47,7 @@ public class Cart implements Serializable{
 		this.cartid = cartid;
 	}
 	//In One productid display in cart
-		@OneToOne
+		@ManyToOne
 		@JoinColumn(name="productid")
 		public Product getProductid() {
 			return productid;

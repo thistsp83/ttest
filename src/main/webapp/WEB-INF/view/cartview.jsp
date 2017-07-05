@@ -2,6 +2,10 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
  <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+ 
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -72,6 +76,7 @@
                            <td>${p.prices*p.quantity}</td>
                             <td>
                              <a class="btn btn-danger" href="./cart_delete?id=${p.cartid}"><em class="fa fa-trash"></em></a>
+                             <a class="btn btn-default" href="./cart_edit?id=${p.cartid}"><em class="fa fa-pencil"></em></a>
                            </td>
                            <tr>  
                             </c:forEach>     
@@ -85,7 +90,7 @@
                  <h1 style="color: red;">Grand Total = <c:out value="${tot}"/></h1>  
                </div>
                <div class="btn-group wishlist">
-					<a href="./">
+					<a href="./ ">
 						<button type="button" class="btn btn-danger">
 							Continue Shopping 
 						</button>
@@ -93,10 +98,14 @@
 					</div>
 					 <div class="btn-group cart">
 					<a href="customerdetails?tot=<c:out value="${tot}"/>">
-						<button type="button" class="btn btn-danger">
+						<button type="button" class="btn btn-success pull-right">
 							Check Out
 						</button>
 						</a>
+						<%-- 
+						    <a href="<spring:url value="/checkout?cartId=${cartId}"/>" class="btn btn-success pull-right">
+    <span class="glyphicon-shopping-cart glyphicon"></span>Check out</a> --%>
+						
 					</div>
              </div>
              
